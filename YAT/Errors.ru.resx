@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# File    : Errors.ru.resx
+# Author  : Mihailov Artem <a7x@a7x-im.com>
+# Purpose : This resource file C# project developed A7X-Im.Com Team
+#
+# Copyright (C) 2008-2017
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation; either version 2 of the
+# License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+# 02111-1307 USA
+#
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
+            <xsd:complexType>
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <!-- Data -->
+    <data name="1-Reason" xml:space="preserve">
+        <value>Указанный файл не существует</value>
+    </data>
+    <data name="2-Reason" xml:space="preserve">
+        <value>Ключ не должен быть длиннее 100 символов</value>
+    </data>
+    <data name="3-Reason" xml:space="preserve">
+        <value>Ключ не должен содержать символов пробела, перехода на новую строку и табуляции</value>
+    </data>
+    <data name="4-Reason" xml:space="preserve">
+        <value>Ошибка записи в реестр</value>
+    </data>
+    <data name="5-Reason" xml:space="preserve">
+        <value>Неправильный API ключ</value>
+    </data>
+    <data name="6-Reason" xml:space="preserve">
+        <value>API ключ заблокирован</value>
+    </data>
+    <data name="7-Reason" xml:space="preserve">
+        <value>Ошибка загрузки списка</value>
+    </data>
+    <data name="8-Reason" xml:space="preserve">
+        <value>Превышен суточный лимит на сумму перевода текста</value>
+    </data>
+    <data name="9-Reason" xml:space="preserve">
+        <value>Превышен суточный лимит на количество запросов</value>
+    </data>
+    <data name="10-Reason" xml:space="preserve">
+        <value>Превышен максимально допустимый размер текста</value>
+    </data>
+    <data name="11-Reason" xml:space="preserve">
+        <value>Текст не может быть проанализирован</value>
+    </data>
+    <data name="12-Reason" xml:space="preserve">
+        <value>Указанное направление перевода не поддерживается</value>
+    </data>
+    <data name="13-Reason" xml:space="preserve">
+        <value>Ошибка перевода. Неизвестный код статуса</value>
+    </data>
+    <data name="14-Reason" xml:space="preserve">
+        <value>Ошибка при определении языка текста</value>
+    </data>
+</root>
