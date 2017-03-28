@@ -106,15 +106,15 @@ namespace YAT
         }
         public void SetPositiionAndSize(string ps)
         {
-            this.p_SetRegValue("PositiionAndSize", ps);
+            this.p_SetRegValue("PositionAndSize", ps);
         }
         public void RemovePositiionAndSize()
         {
-            this.p_RemoveRegKey("PositiionAndSize");
+            this.p_RemoveRegKey("PositionAndSize");
         }
         public string GetPositiionAndSize()
         {
-            return this.p_GetRegValue("PositiionAndSize");
+            return this.p_GetRegValue("PositionAndSize");
         }
     }
 }
