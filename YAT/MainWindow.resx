@@ -101,6 +101,9 @@
     <data name="TSMI-EnTKey.Text" xml:space="preserve">
         <value>Enter the API key text</value>
     </data>
+    <data name="TSMI-Refresh.Text" xml:space="preserve">
+        <value>Refesh list languages</value>
+    </data>
     <data name="TSMI-Quit.Text" xml:space="preserve">
         <value>Quit</value>
     </data>

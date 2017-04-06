@@ -48,7 +48,7 @@ namespace YAT
         }
         private void InitializeComponent()
         {
-            // Initialize objects;
+            // Initialize objects
             this.m_CRManager = new ComponentResourceManager(typeof(Error));
             this.m_CTableLPanel = new TableLayoutPanel();
             this.m_PictureBox = new PictureBox();

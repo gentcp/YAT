@@ -32,3 +32,6 @@ G:\MSVSProjects\YAT\YAT\obj\Release\YAT.pdb
 G:\MSVSProjects\YAT\YAT\obj\Release\YAT.RTBContextMenuStrip.resources
 G:\MSVSProjects\YAT\YAT\obj\Release\YAT.RTBContextMenuStrip.en.resources
 G:\MSVSProjects\YAT\YAT\obj\Release\YAT.RTBContextMenuStrip.ru.resources
+G:\MSVSProjects\YAT\YAT\obj\Release\YAT.Refresh.resources
+G:\MSVSProjects\YAT\YAT\obj\Release\YAT.Refresh.en.resources
+G:\MSVSProjects\YAT\YAT\obj\Release\YAT.Refresh.ru.resources

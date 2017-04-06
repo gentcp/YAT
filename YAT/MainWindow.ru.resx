@@ -101,6 +101,9 @@
     <data name="TSMI-EnTKey.Text" xml:space="preserve">
         <value>Ввести API ключ текстом</value>
     </data>
+    <data name="TSMI-Refresh.Text" xml:space="preserve">
+        <value>Обновить список языков</value>
+    </data>
     <data name="TSMI-Quit.Text" xml:space="preserve">
         <value>Выход</value>
     </data>

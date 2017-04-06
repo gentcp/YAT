@@ -29,7 +29,9 @@ G:\MSVSProjects\YAT\YAT\obj\Debug\YAT.Errors.ru.resources
 G:\MSVSProjects\YAT\YAT\obj\Debug\YAT.EnterKeyText.resources
 G:\MSVSProjects\YAT\YAT\obj\Debug\YAT.EnterKeyText.en.resources
 G:\MSVSProjects\YAT\YAT\obj\Debug\YAT.EnterKeyText.ru.resources
-G:\MSVSProjects\YAT\YAT\obj\Debug\YAT.csprojResolveAssemblyReference.cache
 G:\MSVSProjects\YAT\YAT\obj\Debug\YAT.RTBContextMenuStrip.resources
 G:\MSVSProjects\YAT\YAT\obj\Debug\YAT.RTBContextMenuStrip.en.resources
 G:\MSVSProjects\YAT\YAT\obj\Debug\YAT.RTBContextMenuStrip.ru.resources
+G:\MSVSProjects\YAT\YAT\obj\Debug\YAT.Refresh.resources
+G:\MSVSProjects\YAT\YAT\obj\Debug\YAT.Refresh.en.resources
+G:\MSVSProjects\YAT\YAT\obj\Debug\YAT.Refresh.ru.resources

@@ -57,6 +57,7 @@ namespace YAT
         private ToolStripMenuItem m_TSMIGetKey = null;
         private ToolStripMenuItem m_TSMIEnFKey = null;
         private ToolStripMenuItem m_TSMIEnTKey = null;
+        private ToolStripMenuItem m_TSMIRefresh = null;
         private ToolStripMenuItem m_TSMIQuit = null;
         private ToolStripMenuItem m_TSMILang = null;
         private ToolStripMenuItem m_TSMIContent = null;
@@ -279,6 +280,7 @@ namespace YAT
             this.m_TSMIGetKey = new ToolStripMenuItem();
             this.m_TSMIEnFKey = new ToolStripMenuItem();
             this.m_TSMIEnTKey = new ToolStripMenuItem();
+            this.m_TSMIRefresh = new ToolStripMenuItem();
             this.m_TSMIQuit = new ToolStripMenuItem();
             this.m_TSMILang = new ToolStripMenuItem();
             this.m_TSMIContent = new ToolStripMenuItem();
@@ -296,9 +298,17 @@ namespace YAT
             this.m_TSMIFile.DropDownItems.Add(this.m_TSMIEnFKey);
 
             // ToolStripMenuItem <Enter API key from text>
-            this.m_TSMIEnTKey.Name = "TSMI=EnTKey";
+            this.m_TSMIEnTKey.Name = "TSMI-EnTKey";
             this.m_TSMIEnTKey.Click += new EventHandler(this.M_TSMIEnTKey_Click);
             this.m_TSMIFile.DropDownItems.Add(this.m_TSMIEnTKey);
+
+            // ToolStripSeparator
+            this.m_TSMIFile.DropDownItems.Add(new ToolStripSeparator());
+
+            // ToolStripMenuItem <Refresh list languages>
+            this.m_TSMIRefresh.Name = "TSMI-Refresh";
+            this.m_TSMIRefresh.Click += new EventHandler(this.M_TSMIRefresh_Click);
+            this.m_TSMIFile.DropDownItems.Add(this.m_TSMIRefresh);
 
             // ToolStripSeparator
             this.m_TSMIFile.DropDownItems.Add(new ToolStripSeparator());
@@ -365,6 +375,7 @@ namespace YAT
             this.m_CRManager.ApplyResources(this.m_TSMIGetKey, "TSMI-GetKey");
             this.m_CRManager.ApplyResources(this.m_TSMIEnFKey, "TSMI-EnFKey");
             this.m_CRManager.ApplyResources(this.m_TSMIEnTKey, "TSMI-EnTKey");
+            this.m_CRManager.ApplyResources(this.m_TSMIRefresh, "TSMI-Refresh");
             this.m_CRManager.ApplyResources(this.m_TSMIQuit, "TSMI-Quit");
             this.m_CRManager.ApplyResources(this.m_TSMISettings, "TSMI-Settings");
             this.m_CRManager.ApplyResources(this.m_TSMILang, "TSMI-Lang");
@@ -377,6 +388,7 @@ namespace YAT
         private void p_Initialize()
         {
             // Disabled
+            this.m_TSMIRefresh.Enabled = false;
             this.m_TSMILang.Enabled = false;
             this.m_FComboBox.Enabled = false;
             this.m_TComboBox.Enabled = false;
@@ -387,6 +399,7 @@ namespace YAT
         private void p_Enabled()
         {
             // Enabled
+            this.m_TSMIRefresh.Enabled = true;
             this.m_TSMILang.Enabled = true;
             this.m_FComboBox.Enabled = true;
             this.m_TComboBox.Enabled = true;

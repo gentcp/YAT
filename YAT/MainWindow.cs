@@ -111,6 +111,11 @@ namespace YAT
                 this.p_UpdateLangs();
             }
         }
+        private void M_TSMIRefresh_Click(object sender, EventArgs e)
+        {
+            this.DisableElements();
+            this.m_UTimer.Start();
+        }
         private void M_TSMIQuit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -201,6 +206,16 @@ namespace YAT
             }
             catch (Exception)
             {
+                Refresh dlg = new YAT.Refresh();
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    this.m_UTimer.Start();
+                    return;
+                }
+                else
+                {
+                    this.Close();
+                }
             }
             XMLRLData data = new XMLRLData(r);
             this.SetLanguageList(data);
