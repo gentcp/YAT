@@ -130,6 +130,41 @@ namespace YAT
             this.DisableElements();
             this.m_UTimer.Start();
         }
+        private void M_TSMINoDef_Click(object sender, EventArgs e)
+        {
+            if (this.m_TSMINoDef.Checked)
+            {
+                RegConfig regConfig = new RegConfig();
+                regConfig.RemovePrefLang();
+                this.m_TSCBPref.Enabled = false;
+
+                // Select CurrentUICulture
+                string lang = "";
+                lang = Thread.CurrentThread.CurrentUICulture.Name;
+                lang = Util.GetNormalizeLang(lang);
+
+                // Correct ComboBox <From> selected
+                this.p_SetSelectedItem(lang, this.m_FComboBox);
+            }
+            else
+            {
+                this.m_TSCBPref.Enabled = true;
+            }
+        }
+        private void M_TSMIAuto_Click(object sender, EventArgs e)
+        {
+            bool on = this.m_TSMIAuto.Checked;
+            RegConfig regConfig = new RegConfig();
+            regConfig.SetAutoDetect(on);
+
+            // Enable or disable switching
+            this.m_TSMIAutoOn.Enabled = on;
+        }
+        private void M_TSMIAutoOn_Click(object sender, EventArgs e)
+        {
+            RegConfig regConfig = new RegConfig();
+            regConfig.SetAutoSwitch(this.m_TSMIAutoOn.Checked);
+        }
         private void M_TSMISave_Click(object sender, EventArgs e)
         {
             if (!this.m_TSMISave.Checked)
@@ -138,6 +173,20 @@ namespace YAT
                 return;
             }
             this.p_SetPositionAndSize();
+        }
+        private void M_TSMISaveOn_Click(object sender, EventArgs e)
+        {
+            RegConfig regConfig = new RegConfig();
+            if (this.m_TSMISaveOn.Checked)
+            {
+                ToolStripLabel tsl = (ToolStripLabel)this.m_TComboBox.SelectedItem;
+                if (tsl != null && tsl.Name != "")
+                {
+                    regConfig.SetLastLang(tsl.Name);
+                }
+                return;
+            }
+            regConfig.RemoveLastLang();
         }
         private void M_TSMIContent_Click(object sender, EventArgs e)
         {
@@ -161,8 +210,28 @@ namespace YAT
                 this.m_UTimer.Start();
             }
         }
+        private void M_TSCBPref_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.m_TSMINoDef.Checked)
+            {
+                return;
+            }
+            ToolStripLabel tsl = (ToolStripLabel)this.m_TSCBPref.SelectedItem;
+            if (tsl != null && tsl.Name != "")
+            {
+                RegConfig regConfig = new RegConfig();
+                regConfig.SetPrefLang(tsl.Name);
+
+                // Correct ComboBox <From> selected
+                this.p_SetSelectedItem(tsl.Name, this.m_FComboBox);
+            }
+        } 
         private void M_FRichTextBox_TextChanged(object sender, EventArgs e)
         {
+            if (!this.m_TSMIAuto.Checked)
+            {
+                return;
+            }
             if (this.m_FRichTextBox.Text.Length == 0)
             {
                 this.m_TRichTextBox.Text = "";
@@ -172,6 +241,25 @@ namespace YAT
                 this.m_ATimer.Stop ();
                 this.m_ATimer.Start();
             }
+        }
+        private void M_SButton_Click(object sender, EventArgs e)
+        {
+            string f = "";
+            string t = "";
+
+            ToolStripLabel tsl = null;
+
+            // From
+            tsl = (ToolStripLabel)this.m_FComboBox.SelectedItem;
+            f = tsl.Name;
+
+            // To
+            tsl = (ToolStripLabel)this.m_TComboBox.SelectedItem;
+            t = tsl.Name;
+
+            // ComboBox
+            this.p_SetSelectedItem(t, this.m_FComboBox);
+            this.p_SetSelectedItem(f, this.m_TComboBox);
         }
         private async void M_TButton_Click(object sender, EventArgs e)
         {
@@ -218,6 +306,7 @@ namespace YAT
                 }
             }
             XMLRLData data = new XMLRLData(r);
+            this.SetPMLanguageList(data);
             this.SetLanguageList(data);
         }
         private async void M_ATimer_Tick(object sender, EventArgs e)
@@ -243,6 +332,19 @@ namespace YAT
         private void M_ComboBox_Click(object sender, EventArgs e)
         {
             this.m_ATimer.Stop();
+        }
+        private void M_TComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!this.m_TSMISaveOn.Checked)
+            {
+                return;
+            }
+            ToolStripLabel tsl = (ToolStripLabel)this.m_TComboBox.SelectedItem;
+            if (tsl != null && tsl.Name != "")
+            {
+                RegConfig regConfig = new RegConfig();
+                regConfig.SetLastLang(tsl.Name);
+            }
         }
         private void M_STimer_Tick(object sender, EventArgs e)
         {

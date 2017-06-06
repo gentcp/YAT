@@ -110,5 +110,21 @@ namespace YAT
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        internal static System.Drawing.Bitmap Translate
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Translate", m_ResourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap Switch
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Switch", m_ResourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

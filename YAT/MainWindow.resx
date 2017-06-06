@@ -80,6 +80,9 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <!-- Data -->
+    <data name="S-Button.Text" xml:space="preserve">
+        <value>Switch</value>
+    </data>
     <data name="T-Button.Text" xml:space="preserve">
         <value>Translate</value>
     </data>
@@ -88,6 +91,12 @@
     </data>
     <data name="T-Label.Text" xml:space="preserve">
         <value>Translated text</value>
+    </data>
+    <data name="F-LName.Text" xml:space="preserve">
+        <value>With:</value>
+    </data>
+    <data name="T-LName.Text" xml:space="preserve">
+        <value>On:</value>
     </data>
     <data name="TSMI-File.Text" xml:space="preserve">
         <value>File</value>
@@ -113,8 +122,20 @@
     <data name="TSMI-Lang.Text" xml:space="preserve">
         <value>Language</value>
     </data>
+    <data name="TSMI-Pref.Text" xml:space="preserve">
+        <value>Preferred language translation</value>
+    </data>
+    <data name="TSMI-Auto.Text" xml:space="preserve">
+        <value>Enable automatic language detection</value>
+    </data>
+    <data name="TSMI-AutoOn.Text" xml:space="preserve">
+        <value>Enable automatic language switching</value>
+    </data>
     <data name="TSMI-Save.Text" xml:space="preserve">
         <value>Remember size and position of the main window</value>
+    </data>
+    <data name="TSMI-SaveOn.Text" xml:space="preserve">
+        <value>Remember last selected language</value>
     </data>
     <data name="TSMI-Help.Text" xml:space="preserve">
         <value>Help</value>
@@ -127,6 +148,9 @@
     </data>
     <data name="TSMI-System.Text" xml:space="preserve">
         <value>System</value>
+    </data>
+    <data name="TSMI-NoDef.Text" xml:space="preserve">
+        <value>Not assigned (System)</value>
     </data>
     <data name="GetLangs" xml:space="preserve">
         <value>Download language list....</value>

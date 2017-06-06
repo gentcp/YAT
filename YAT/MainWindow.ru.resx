@@ -80,6 +80,9 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <!-- Data -->
+    <data name="S-Button.Text" xml:space="preserve">
+        <value>Переключить</value>
+    </data>
     <data name="T-Button.Text" xml:space="preserve">
         <value>Перевести</value>
     </data>
@@ -88,6 +91,12 @@
     </data>
     <data name="T-Label.Text" xml:space="preserve">
         <value>Переведенный текст</value>
+    </data>
+    <data name="F-LName.Text" xml:space="preserve">
+        <value>С:</value>
+    </data>
+    <data name="T-LName.Text" xml:space="preserve">
+        <value>На:</value>
     </data>
     <data name="TSMI-File.Text" xml:space="preserve">
         <value>Файл</value>
@@ -113,8 +122,20 @@
     <data name="TSMI-Lang.Text" xml:space="preserve">
         <value>Язык</value>
     </data>
+    <data name="TSMI-Pref.Text" xml:space="preserve">
+        <value>Предпочтительный язык перевода</value>
+    </data>
+    <data name="TSMI-Auto.Text" xml:space="preserve">
+        <value>Включить автоматическое определение языка</value>
+    </data>
+    <data name="TSMI-AutoOn.Text" xml:space="preserve">
+        <value>Включить автоматическое переключение языка</value>
+    </data>
     <data name="TSMI-Save.Text" xml:space="preserve">
         <value>Запомнить размер и положение главного окна</value>
+    </data>
+    <data name="TSMI-SaveOn.Text" xml:space="preserve">
+        <value>Запомнить последний выбранный язык</value>
     </data>
     <data name="TSMI-Help.Text" xml:space="preserve">
         <value>Помощь</value>
@@ -127,6 +148,9 @@
     </data>
     <data name="TSMI-System.Text" xml:space="preserve">
         <value>Системный</value>
+    </data>
+    <data name="TSMI-NoDef.Text" xml:space="preserve">
+        <value>Не назначено (Системный)</value>
     </data>
     <data name="GetLangs" xml:space="preserve">
         <value>Загрузка списка языков....</value>

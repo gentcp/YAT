@@ -75,13 +75,13 @@ namespace YAT
                 }
             }
         }
-        private string p_GetRegValue(string key)
+        private string p_GetRegValue(string key, string defaultValue = "")
         {
             if (this.m_RegKey != null)
             {
-                return (string)this.m_RegKey.GetValue(key, "");
+                return (string)this.m_RegKey.GetValue(key, defaultValue);
             }
-            return "";
+            return defaultValue;
         }
         // Public methods
         public void SetAPIKey(string APIKey)
@@ -115,6 +115,50 @@ namespace YAT
         public string GetPositiionAndSize()
         {
             return this.p_GetRegValue("PositionAndSize");
+        }
+        public void SetPrefLang(string lang)
+        {
+            this.p_SetRegValue("PreferredLang", lang);
+        }
+        public void RemovePrefLang()
+        {
+            this.p_RemoveRegKey("PreferredLang");
+        }
+        public string GetPrefLang()
+        {
+            return this.p_GetRegValue("PreferredLang");
+        }
+        public void SetAutoDetect(bool on)
+        {
+            this.p_SetRegValue("AutoDetect", on.ToString());
+        }
+        public bool GetAutoDetect()
+        {
+            return this.p_GetRegValue("AutoDetect", "True") == "True";
+        }
+        public void SetAutoSwitch(bool on)
+        {
+            this.p_SetRegValue("AutoSwitch", on.ToString());
+        }
+        public bool GetAutoSwitch()
+        {
+            return this.p_GetRegValue("AutoSwitch", "True") == "True";
+        }
+        public void SetLastLang(string lang)
+        {
+            this.p_SetRegValue("LastLang", lang);
+        }
+        public void RemoveLastLang()
+        {
+            this.p_RemoveRegKey("LastLang");
+        }
+        public string GetLastLang()
+        {
+            return this.p_GetRegValue("LastLang");
+        }
+        public bool GetSaveOn()
+        {
+            return this.p_GetRegValue("LastLang") != null;
         }
     }
 }
