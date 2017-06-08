@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------
-# File    : Pixmaps.Designer.cs
+# File    : ToolTipHelper.Designer.cs
 # Author  : Mihailov Artem <a7x@a7x-im.com>
 # Purpose : This file is part C# project developed A7X-Im.Com Team
 #
@@ -36,13 +36,13 @@ namespace YAT
     [GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [DebuggerNonUserCodeAttribute()]
     [CompilerGeneratedAttribute()]
-    internal class Pixmaps
+    internal class ToolTipHelper
     {
         private static ResourceManager m_ResourceManager = null;
         private static CultureInfo m_ResourceCulture = null;
 
         [SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Pixmaps()
+        internal ToolTipHelper()
         {
         }
         [EditorBrowsableAttribute(EditorBrowsableState.Advanced)]
@@ -52,7 +52,7 @@ namespace YAT
             {
                 if ((m_ResourceManager == null))
                 {
-                    m_ResourceManager = new ResourceManager("YAT.Pixmaps", typeof(Pixmaps).Assembly);
+                    m_ResourceManager = new ResourceManager("YAT.ToolTipHelper", typeof(ToolTipHelper).Assembly);
                 }
                 return m_ResourceManager;
             }
@@ -70,76 +70,25 @@ namespace YAT
             }
         }
         // Internal methods
-        internal static System.Drawing.Bitmap Error
+        internal static string Hold
         {
             get
             {
-                object obj = ResourceManager.GetObject("Error", m_ResourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("Hold", m_ResourceCulture);
             }
         }
-        internal static System.Drawing.Bitmap ErrorIcon
+        internal static string Switch
         {
             get
             {
-                object obj = ResourceManager.GetObject("ErrorIcon", m_ResourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("Switch", m_ResourceCulture);
             }
         }
-        internal static System.Drawing.Bitmap Icon
+        internal static string Translate
         {
             get
             {
-                object obj = ResourceManager.GetObject("Icon", m_ResourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        internal static System.Drawing.Bitmap Key
-        {
-            get
-            {
-                object obj = ResourceManager.GetObject("Key", m_ResourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        internal static System.Drawing.Bitmap Logo
-        {
-            get
-            {
-                object obj = ResourceManager.GetObject("Logo", m_ResourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        internal static System.Drawing.Bitmap Translate
-        {
-            get
-            {
-                object obj = ResourceManager.GetObject("Translate", m_ResourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        internal static System.Drawing.Bitmap Switch
-        {
-            get
-            {
-                object obj = ResourceManager.GetObject("Switch", m_ResourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        internal static System.Drawing.Bitmap HoldD
-        {
-            get
-            {
-                object obj = ResourceManager.GetObject("HoldD", m_ResourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        internal static System.Drawing.Bitmap HoldE
-        {
-            get
-            {
-                object obj = ResourceManager.GetObject("HoldE", m_ResourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("Translate", m_ResourceCulture);
             }
         }
     }

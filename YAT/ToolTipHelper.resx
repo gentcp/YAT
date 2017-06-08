@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# File    : MainWindow.en.resx
+# File    : ToolTipHelper.resx
 # Author  : Mihailov Artem <a7x@a7x-im.com>
 # Purpose : This resource file C# project developed A7X-Im.Com Team
 #
@@ -80,88 +80,13 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <!-- Data -->
-    <data name="H-Button.Text" xml:space="preserve">
-        <value>Hold</value>
+    <data name="Hold" xml:space="preserve">
+        <value>To keep the selected languages and work only with them</value>
     </data>
-    <data name="S-Button." xml:space="preserve">
-        <value>Switch</value>
+    <data name="Switch" xml:space="preserve">
+        <value>Swap languages</value>
     </data>
-    <data name="T-Button.Text" xml:space="preserve">
-        <value>Translate</value>
-    </data>
-    <data name="F-Label.Text" xml:space="preserve">
-        <value>Translatable text</value>
-    </data>
-    <data name="T-Label.Text" xml:space="preserve">
-        <value>Translated text</value>
-    </data>
-    <data name="F-LName.Text" xml:space="preserve">
-        <value>With:</value>
-    </data>
-    <data name="T-LName.Text" xml:space="preserve">
-        <value>On:</value>
-    </data>
-    <data name="TSMI-File.Text" xml:space="preserve">
-        <value>File</value>
-    </data>
-    <data name="TSMI-GetKey.Text" xml:space="preserve">
-        <value>Get API key</value>
-    </data>
-    <data name="TSMI-EnFKey.Text" xml:space="preserve">
-        <value>Enter API key from file</value>
-    </data>
-    <data name="TSMI-EnTKey.Text" xml:space="preserve">
-        <value>Enter the API key text</value>
-    </data>
-    <data name="TSMI-Refresh.Text" xml:space="preserve">
-        <value>Refesh list languages</value>
-    </data>
-    <data name="TSMI-Quit.Text" xml:space="preserve">
-        <value>Quit</value>
-    </data>
-    <data name="TSMI-Settings.Text" xml:space="preserve">
-        <value>Settings</value>
-    </data>
-    <data name="TSMI-Lang.Text" xml:space="preserve">
-        <value>Language</value>
-    </data>
-    <data name="TSMI-Pref.Text" xml:space="preserve">
-        <value>Preferred language translation</value>
-    </data>
-    <data name="TSMI-Auto.Text" xml:space="preserve">
-        <value>Enable automatic language detection</value>
-    </data>
-    <data name="TSMI-AutoOn.Text" xml:space="preserve">
-        <value>Enable automatic language switching</value>
-    </data>
-    <data name="TSMI-Save.Text" xml:space="preserve">
-        <value>Remember size and position of the main window</value>
-    </data>
-    <data name="TSMI-SaveOn.Text" xml:space="preserve">
-        <value>Remember last selected language</value>
-    </data>
-    <data name="TSMI-Help.Text" xml:space="preserve">
-        <value>Help</value>
-    </data>
-    <data name="TSMI-Content.Text" xml:space="preserve">
-        <value>Content</value>
-    </data>
-    <data name="TSMI-About.Text" xml:space="preserve">
-        <value>About</value>
-    </data>
-    <data name="TSMI-System.Text" xml:space="preserve">
-        <value>System</value>
-    </data>
-    <data name="TSMI-NoDef.Text" xml:space="preserve">
-        <value>Not assigned (System)</value>
-    </data>
-    <data name="GetLangs" xml:space="preserve">
-        <value>Download language list....</value>
-    </data>
-    <data name="Translation" xml:space="preserve">
-        <value>Translation text....</value>
-    </data>
-    <data name="AutoDetect" xml:space="preserve">
-        <value>Automatic language detection</value>
+    <data name="Translate" xml:space="preserve">
+        <value>Start translating</value>
     </data>
 </root>

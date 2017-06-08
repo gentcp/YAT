@@ -96,6 +96,7 @@
     <Compile Include="ToolStripRBMenuItem.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ToolTipHelper.Designer.cs" />
     <Compile Include="Util.cs" />
     <Compile Include="XMLManager.cs" />
     <EmbeddedResource Include="About.en.resx" />
@@ -139,6 +140,9 @@
     <EmbeddedResource Include="RTBContextMenuStrip.en.resx" />
     <EmbeddedResource Include="RTBContextMenuStrip.resx" />
     <EmbeddedResource Include="RTBContextMenuStrip.ru.resx" />
+    <EmbeddedResource Include="ToolTipHelper.en.resx" />
+    <EmbeddedResource Include="ToolTipHelper.resx" />
+    <EmbeddedResource Include="ToolTipHelper.ru.resx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

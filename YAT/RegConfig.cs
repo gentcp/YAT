@@ -160,5 +160,25 @@ namespace YAT
         {
             return this.p_GetRegValue("LastLang") != null;
         }
+        public void SetHoldLang(bool on)
+        {
+            this.p_SetRegValue("HoldLang", on.ToString());
+        }
+        public bool GetHoldLang()
+        {
+            return this.p_GetRegValue("HoldLang", "False") == "True";
+        }
+        public void SetHoldLangs(string langs)
+        {
+            this.p_SetRegValue("HoldLangs", langs);
+        }
+        public void RemoveHoldLangs()
+        {
+            this.p_RemoveRegKey("HoldLangs");
+        }
+        public string GetHoldLangs()
+        {
+            return this.p_GetRegValue("HoldLangs");
+        }
     }
 }

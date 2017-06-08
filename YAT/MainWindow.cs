@@ -42,6 +42,7 @@ namespace YAT
         private System.Windows.Forms.Timer m_UTimer = null;
         private System.Windows.Forms.Timer m_ATimer = null;
         private APIManager m_APIManager = null;
+        private RegConfig m_RegConfig = null;
 
         public MainWindow()
         {
@@ -49,10 +50,10 @@ namespace YAT
             this.m_UTimer = new System.Windows.Forms.Timer();
             this.m_ATimer = new System.Windows.Forms.Timer();
             this.m_APIManager = new APIManager();
+            this.m_RegConfig = new RegConfig();
 
             // Setup culture
-            RegConfig regConfig = new RegConfig();
-            string lang = regConfig.GetLang();
+            string lang = this.m_RegConfig.GetLang();
             bool regLang = true;
             if (lang == "")
             {
@@ -124,8 +125,7 @@ namespace YAT
         {
             string lang = CultureInfo.InstalledUICulture.Name;
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
-            RegConfig regConfig = new RegConfig();
-            regConfig.RemoveLang();
+            this.m_RegConfig.RemoveLang();
             this.UpdateInterface();
             this.DisableElements();
             this.m_UTimer.Start();
@@ -134,8 +134,7 @@ namespace YAT
         {
             if (this.m_TSMINoDef.Checked)
             {
-                RegConfig regConfig = new RegConfig();
-                regConfig.RemovePrefLang();
+                this.m_RegConfig.RemovePrefLang();
                 this.m_TSCBPref.Enabled = false;
 
                 // Select CurrentUICulture
@@ -144,7 +143,10 @@ namespace YAT
                 lang = Util.GetNormalizeLang(lang);
 
                 // Correct ComboBox <From> selected
-                this.p_SetSelectedItem(lang, this.m_FComboBox);
+                if (!this.m_RegConfig.GetHoldLang())
+                {
+                    this.p_SetSelectedItem(lang, this.m_FComboBox);
+                }
             }
             else
             {
@@ -154,16 +156,14 @@ namespace YAT
         private void M_TSMIAuto_Click(object sender, EventArgs e)
         {
             bool on = this.m_TSMIAuto.Checked;
-            RegConfig regConfig = new RegConfig();
-            regConfig.SetAutoDetect(on);
+            this.m_RegConfig.SetAutoDetect(on);
 
             // Enable or disable switching
             this.m_TSMIAutoOn.Enabled = on;
         }
         private void M_TSMIAutoOn_Click(object sender, EventArgs e)
         {
-            RegConfig regConfig = new RegConfig();
-            regConfig.SetAutoSwitch(this.m_TSMIAutoOn.Checked);
+            this.m_RegConfig.SetAutoSwitch(this.m_TSMIAutoOn.Checked);
         }
         private void M_TSMISave_Click(object sender, EventArgs e)
         {
@@ -176,17 +176,16 @@ namespace YAT
         }
         private void M_TSMISaveOn_Click(object sender, EventArgs e)
         {
-            RegConfig regConfig = new RegConfig();
             if (this.m_TSMISaveOn.Checked)
             {
                 ToolStripLabel tsl = (ToolStripLabel)this.m_TComboBox.SelectedItem;
                 if (tsl != null && tsl.Name != "")
                 {
-                    regConfig.SetLastLang(tsl.Name);
+                    this.m_RegConfig.SetLastLang(tsl.Name);
                 }
                 return;
             }
-            regConfig.RemoveLastLang();
+            this.m_RegConfig.RemoveLastLang();
         }
         private void M_TSMIContent_Click(object sender, EventArgs e)
         {
@@ -203,8 +202,7 @@ namespace YAT
             {
                 ToolStripMenuItem tsmi = (ToolStripMenuItem)sender;
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo(tsmi.Name);
-                RegConfig regConfig = new RegConfig();
-                regConfig.SetLang(tsmi.Name);
+                this.m_RegConfig.SetLang(tsmi.Name);
                 this.UpdateInterface();
                 this.DisableElements();
                 this.m_UTimer.Start();
@@ -219,16 +217,19 @@ namespace YAT
             ToolStripLabel tsl = (ToolStripLabel)this.m_TSCBPref.SelectedItem;
             if (tsl != null && tsl.Name != "")
             {
-                RegConfig regConfig = new RegConfig();
-                regConfig.SetPrefLang(tsl.Name);
+                this.m_RegConfig.SetPrefLang(tsl.Name);
 
                 // Correct ComboBox <From> selected
-                this.p_SetSelectedItem(tsl.Name, this.m_FComboBox);
+                if (!this.m_RegConfig.GetHoldLang())
+                {
+                    this.p_SetSelectedItem(tsl.Name, this.m_FComboBox);
+                }
             }
         } 
         private void M_FRichTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (!this.m_TSMIAuto.Checked)
+            if (!this.m_TSMIAuto.Checked ||
+                    this.m_RegConfig.GetHoldLang())
             {
                 return;
             }
@@ -240,6 +241,24 @@ namespace YAT
             {
                 this.m_ATimer.Stop ();
                 this.m_ATimer.Start();
+            }
+        }
+        private void M_HButton_Click(object sender, EventArgs e)
+        {
+            bool on = this.m_RegConfig.GetHoldLang();
+            this.m_HButton.Image = on ? Pixmaps.HoldD : Pixmaps.HoldE;
+            this.m_FComboBox.Enabled = on;
+            this.m_TComboBox.Enabled = on;
+            this.m_RegConfig.SetHoldLang(!on);
+            if (!on)
+            {
+                string f = ((ToolStripLabel)this.m_FComboBox.SelectedItem).Name;
+                string t = ((ToolStripLabel)this.m_TComboBox.SelectedItem).Name;
+                this.m_RegConfig.SetHoldLangs(f + ":" + t);
+            }
+            else
+            {
+                this.m_RegConfig.RemoveHoldLangs();
             }
         }
         private void M_SButton_Click(object sender, EventArgs e)
@@ -342,8 +361,7 @@ namespace YAT
             ToolStripLabel tsl = (ToolStripLabel)this.m_TComboBox.SelectedItem;
             if (tsl != null && tsl.Name != "")
             {
-                RegConfig regConfig = new RegConfig();
-                regConfig.SetLastLang(tsl.Name);
+                this.m_RegConfig.SetLastLang(tsl.Name);
             }
         }
         private void M_STimer_Tick(object sender, EventArgs e)
@@ -354,15 +372,13 @@ namespace YAT
         // Private methods
         private void p_SetPositionAndSize()
         {
-            RegConfig regConfig = new RegConfig();
             Rectangle r = new Rectangle(this.DesktopLocation, this.Size);
             string rs = Util.RectangleToString(r);
-            regConfig.SetPositiionAndSize(rs);
+            this.m_RegConfig.SetPositiionAndSize(rs);
         }
         private void p_RemovePositionAndSize()
         {
-            RegConfig regConfig = new RegConfig();
-            regConfig.RemovePositiionAndSize();
+            this.m_RegConfig.RemovePositiionAndSize();
         }
         private void p_UpdateLangs()
         {

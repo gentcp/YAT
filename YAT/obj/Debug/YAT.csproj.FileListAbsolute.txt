@@ -35,3 +35,6 @@ G:\MSVSProjects\YAT\YAT\obj\Debug\YAT.RTBContextMenuStrip.ru.resources
 G:\MSVSProjects\YAT\YAT\obj\Debug\YAT.Refresh.resources
 G:\MSVSProjects\YAT\YAT\obj\Debug\YAT.Refresh.en.resources
 G:\MSVSProjects\YAT\YAT\obj\Debug\YAT.Refresh.ru.resources
+G:\MSVSProjects\YAT\YAT\obj\Debug\YAT.ToolTipHelper.resources
+G:\MSVSProjects\YAT\YAT\obj\Debug\YAT.ToolTipHelper.en.resources
+G:\MSVSProjects\YAT\YAT\obj\Debug\YAT.ToolTipHelper.ru.resources

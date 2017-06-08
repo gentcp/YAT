@@ -159,7 +159,7 @@ namespace YAT
             this.m_NLabel.TextAlign = ContentAlignment.MiddleCenter;
             this.m_NLabel.Font = new Font(m_NLabel.Font, FontStyle.Bold);
             this.m_NLabel.Name = "N-Label";
-            this.m_NLabel.Text = "YAT 1.4";
+            this.m_NLabel.Text = "YAT 1.5";
             this.m_NLabel.TabIndex = 6;
 
             // Label <Description>

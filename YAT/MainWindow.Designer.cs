@@ -40,6 +40,7 @@ namespace YAT
         private MenuStrip m_MenuStrip = null;
         private ComboBox m_FComboBox = null;
         private ComboBox m_TComboBox = null;
+        private Button m_HButton = null;
         private Button m_SButton = null;
         private Button m_TButton = null;
         private RichTextBox m_FRichTextBox = null;
@@ -50,6 +51,9 @@ namespace YAT
         private Label m_TLName = null;
         private StatusStrip m_StatusStrip = null;
         private ToolStripComboBox m_TSCBPref = null;
+        private ToolTip m_THTip = null;
+        private ToolTip m_TSTip = null;
+        private ToolTip m_TTTip = null;
 
         // RichTextBox <RTBContextMenuStrip>
         private RTBContextMenuStrip m_FRTBContextMenu = null;
@@ -97,6 +101,7 @@ namespace YAT
             this.m_MenuStrip = new MenuStrip();
             this.m_FComboBox = new ComboBox();
             this.m_TComboBox = new ComboBox();
+            this.m_HButton = new Button();
             this.m_SButton = new Button();
             this.m_TButton = new Button();
             this.m_FRichTextBox = new RichTextBox();
@@ -108,6 +113,9 @@ namespace YAT
             this.m_StatusStrip = new StatusStrip();
             this.m_TSSLabel = new ToolStripStatusLabel();
             this.m_STimer = new System.Windows.Forms.Timer();
+            this.m_THTip = new ToolTip();
+            this.m_TSTip = new ToolTip();
+            this.m_TTTip = new ToolTip();
 
             // Suspended
             this.m_CTableLPanel.SuspendLayout();
@@ -120,9 +128,10 @@ namespace YAT
             this.m_CTableLPanel.Dock = DockStyle.Fill;
             this.m_CTableLPanel.Name = "C-TablePanelLayout";
             this.m_CTableLPanel.TabIndex = 0;
-            this.m_CTableLPanel.ColumnCount = 4;
-            this.m_CTableLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 30F));
+            this.m_CTableLPanel.ColumnCount = 5;
+            this.m_CTableLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
             this.m_CTableLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            this.m_CTableLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 30F));
             this.m_CTableLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 45F));
             this.m_CTableLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 45F));
             this.m_CTableLPanel.RowCount = 8;
@@ -139,19 +148,21 @@ namespace YAT
             this.m_CTableLPanel.Controls.Add(this.m_FComboBox, 1, 1);
             this.m_CTableLPanel.Controls.Add(this.m_TLName, 0, 2);
             this.m_CTableLPanel.Controls.Add(this.m_TComboBox, 1, 2);
-            this.m_CTableLPanel.Controls.Add(this.m_SButton, 2, 1);
-            this.m_CTableLPanel.Controls.Add(this.m_TButton, 3, 1);
+            this.m_CTableLPanel.Controls.Add(this.m_HButton, 2, 1);
+            this.m_CTableLPanel.Controls.Add(this.m_SButton, 3, 1);
+            this.m_CTableLPanel.Controls.Add(this.m_TButton, 4, 1);
             this.m_CTableLPanel.Controls.Add(this.m_FLabel, 0, 3);
             this.m_CTableLPanel.Controls.Add(this.m_FRichTextBox, 0, 4);
             this.m_CTableLPanel.Controls.Add(this.m_TLabel, 0, 5);
             this.m_CTableLPanel.Controls.Add(this.m_TRichTextBox, 0, 6);
             this.m_CTableLPanel.Controls.Add(this.m_StatusStrip, 0, 7);
-            this.m_CTableLPanel.SetColumnSpan(this.m_MenuStrip, 4);
-            this.m_CTableLPanel.SetColumnSpan(this.m_FLabel, 4);
-            this.m_CTableLPanel.SetColumnSpan(this.m_FRichTextBox, 4);
-            this.m_CTableLPanel.SetColumnSpan(this.m_TLabel, 4);
-            this.m_CTableLPanel.SetColumnSpan(this.m_TRichTextBox, 4);
-            this.m_CTableLPanel.SetColumnSpan(this.m_StatusStrip, 4);
+            this.m_CTableLPanel.SetColumnSpan(this.m_MenuStrip, 5);
+            this.m_CTableLPanel.SetColumnSpan(this.m_FLabel, 5);
+            this.m_CTableLPanel.SetColumnSpan(this.m_FRichTextBox, 5);
+            this.m_CTableLPanel.SetColumnSpan(this.m_TLabel, 5);
+            this.m_CTableLPanel.SetColumnSpan(this.m_TRichTextBox, 5);
+            this.m_CTableLPanel.SetColumnSpan(this.m_StatusStrip, 5);
+            this.m_CTableLPanel.SetRowSpan(this.m_HButton, 2);
             this.m_CTableLPanel.SetRowSpan(this.m_SButton, 2);
             this.m_CTableLPanel.SetRowSpan(this.m_TButton, 2);
 
@@ -182,6 +193,15 @@ namespace YAT
             this.m_TComboBox.SelectedIndexChanged +=
                 new EventHandler(this.M_TComboBox_SelectedIndexChanged);
 
+            // Button <Hold>
+            this.m_HButton.Anchor = AnchorStyles.None;
+            this.m_HButton.UseVisualStyleBackColor = true;
+            this.m_HButton.Name = "H-Button";
+            this.m_HButton.Image = Pixmaps.HoldD;
+            this.m_HButton.Size = new Size(30, 45);
+            this.m_HButton.TabIndex = 4;
+            this.m_HButton.Click += new EventHandler(this.M_HButton_Click);
+
             // Button <Switching>
             this.m_SButton.Anchor = AnchorStyles.None;
             this.m_SButton.UseVisualStyleBackColor = true;
@@ -199,6 +219,15 @@ namespace YAT
             this.m_TButton.Size = new Size(45, 45);
             this.m_TButton.TabIndex = 4;
             this.m_TButton.Click += new EventHandler(this.M_TButton_Click);
+
+            // ToolTip <Hold>
+            this.m_THTip.SetToolTip(this.m_HButton, ToolTipHelper.Hold);
+
+            // ToolTip <Switching>
+            this.m_TSTip.SetToolTip(this.m_SButton, ToolTipHelper.Switch);
+
+            // ToolTip <Translate>
+            this.m_TTTip.SetToolTip(this.m_TButton, ToolTipHelper.Translate);
 
             // Label <From>
             this.m_FLabel.AutoSize = true;
@@ -284,11 +313,8 @@ namespace YAT
             // Initialize
             this.p_Initialize();
 
-            // Register
-            RegConfig regConfig = new RegConfig();
-
             // MainWindow <Configure>
-            string ps = regConfig.GetPositiionAndSize();
+            string ps = this.m_RegConfig.GetPositiionAndSize();
             Rectangle r = Util.StringToRectangle(ps);
             if (!r.IsEmpty)
             {
@@ -308,16 +334,16 @@ namespace YAT
             bool on = false;
 
             // Enable auto detect
-            on = regConfig.GetAutoDetect();
+            on = this.m_RegConfig.GetAutoDetect();
             this.m_TSMIAuto.Checked = on;
             this.m_TSMIAutoOn.Enabled = on;
 
             // Enable auto switch
-            on = regConfig.GetAutoSwitch();
+            on = this.m_RegConfig.GetAutoSwitch();
             this.m_TSMIAutoOn.Checked = on;
 
             // Last language
-            this.m_TSMISaveOn.Checked = regConfig.GetSaveOn();
+            this.m_TSMISaveOn.Checked = this.m_RegConfig.GetSaveOn();
         }
         // Private methods
         private void p_InitializeMenu()
@@ -447,15 +473,15 @@ namespace YAT
             this.m_TSMILang.DropDownItems.Add(new ToolStripSeparator());
 
             // Add other language
-            ToolStripRadioButtonMenuItem tsmi_l = null;
-            tsmi_l = new ToolStripRadioButtonMenuItem("English");
-            tsmi_l.Name = "en";
-            tsmi_l.Click += new EventHandler(this.M_tsmi_Click);
-            this.m_TSMILang.DropDownItems.Add(tsmi_l);
-            tsmi_l = new ToolStripRadioButtonMenuItem("Русский");
-            tsmi_l.Name = "ru";
-            tsmi_l.Click += new EventHandler(this.M_tsmi_Click);
-            this.m_TSMILang.DropDownItems.Add(tsmi_l);
+            ToolStripRadioButtonMenuItem tsmi = null;
+            tsmi = new ToolStripRadioButtonMenuItem("English");
+            tsmi.Name = "en";
+            tsmi.Click += new EventHandler(this.M_tsmi_Click);
+            this.m_TSMILang.DropDownItems.Add(tsmi);
+            tsmi = new ToolStripRadioButtonMenuItem("Русский");
+            tsmi.Name = "ru";
+            tsmi.Click += new EventHandler(this.M_tsmi_Click);
+            this.m_TSMILang.DropDownItems.Add(tsmi);
         }
         private void p_PreferredMenu()
         {
@@ -483,6 +509,7 @@ namespace YAT
         private void p_UpdateInterfaceLang()
         {
             // ComponentResourceManager
+            //this.m_CRManager.ApplyResources(this.m_HButton, "H-Button");
             //this.m_CRManager.ApplyResources(this.m_SButton, "S-Button");
             //this.m_CRManager.ApplyResources(this.m_TButton, "T-Button");
             this.m_CRManager.ApplyResources(this.m_FLabel, "F-Label");
@@ -507,6 +534,10 @@ namespace YAT
             this.m_CRManager.ApplyResources(this.m_TSMIAbout, "TSMI-About");
             this.m_CRManager.ApplyResources(this.m_TSMISystem, "TSMI-System");
             this.m_CRManager.ApplyResources(this.m_TSMINoDef, "TSMI-NoDef");
+            // ToolTip <Updates>
+            this.m_THTip.SetToolTip(this.m_HButton, ToolTipHelper.Hold);
+            this.m_TSTip.SetToolTip(this.m_SButton, ToolTipHelper.Switch);
+            this.m_TTTip.SetToolTip(this.m_TButton, ToolTipHelper.Translate);
         }
         private void p_Initialize()
         {
@@ -520,6 +551,7 @@ namespace YAT
             this.m_TRichTextBox.Enabled = false;
             this.m_TButton.Enabled = false;
             this.m_SButton.Enabled = false;
+            this.m_HButton.Enabled = false;
         }
         private void p_Enabled()
         {
@@ -533,6 +565,7 @@ namespace YAT
             this.m_TRichTextBox.Enabled = true;
             this.m_TButton.Enabled = true;
             this.m_SButton.Enabled = true;
+            this.m_HButton.Enabled = true;
         }
         private void p_ErrorReason(int code, bool var = false)
         {
@@ -575,6 +608,24 @@ namespace YAT
                 }
             }
         }
+        private void p_HoldLang()
+        {
+            // Button <Hold>
+            this.m_HButton.Image = Pixmaps.HoldE;
+
+            // Setup languages
+            string ft = this.m_RegConfig.GetHoldLangs();
+            string[] sp = ft.Split(':');
+            if (sp.Count<string>() == 2)
+            {
+                this.p_SetSelectedItem(sp[0], this.m_FComboBox);
+                this.p_SetSelectedItem(sp[1], this.m_TComboBox);
+            }
+
+            // ComboBox
+            this.m_FComboBox.Enabled = false;
+            this.m_TComboBox.Enabled = false;
+        }
         // Public methods
         public void SetLanguageList(XMLRLData data)
         {
@@ -611,32 +662,38 @@ namespace YAT
             }
             this.p_Enabled();
 
-            // Register
-            RegConfig regConfig = new RegConfig();
-
-            string lang = "";
-
-            // Preffered language translation or <System> CurrentUICulture
-            lang = regConfig.GetPrefLang();
-            if (lang == "")
+            // Hold languages
+            bool on = this.m_RegConfig.GetHoldLang();
+            if (!on)
             {
-                lang = Thread.CurrentThread.CurrentUICulture.Name;
-                lang = Util.GetNormalizeLang(lang);
+                string lang = "";
+
+                // Preffered language translation or <System> CurrentUICulture
+                lang = this.m_RegConfig.GetPrefLang();
+                if (lang == "")
+                {
+                    lang = Thread.CurrentThread.CurrentUICulture.Name;
+                    lang = Util.GetNormalizeLang(lang);
+                }
+
+                // ComboBox <From>
+                this.p_SetSelectedItem(lang, this.m_FComboBox);
+
+                // Save last language
+                lang = this.m_RegConfig.GetLastLang();
+                if (lang == "")
+                {
+                    this.m_TComboBox.SelectedIndex = 0;
+                    return;
+                }
+
+                // ComboBox <To>
+                this.p_SetSelectedItem(lang, this.m_TComboBox);
             }
-
-            // ComboBox <From>
-            this.p_SetSelectedItem(lang, this.m_FComboBox);
-
-            // Save last language
-            lang = regConfig.GetLastLang();
-            if (lang == "")
+            else
             {
-                this.m_TComboBox.SelectedIndex = 0;
-                return;
+                this.p_HoldLang();
             }
-
-            // ComboBox <To>
-            this.p_SetSelectedItem(lang, this.m_TComboBox);
         }
         public void SetPMLanguageList(XMLRLData data)
         {
@@ -658,8 +715,7 @@ namespace YAT
             }
 
             // Enabled
-            RegConfig regConfig = new RegConfig();
-            string lang = regConfig.GetPrefLang();
+            string lang = this.m_RegConfig.GetPrefLang();
             if (lang == "")
             {
                 this.m_TSMINoDef.Checked = true;
