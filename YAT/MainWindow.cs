@@ -228,16 +228,12 @@ namespace YAT
         } 
         private void M_FRichTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (!this.m_TSMIAuto.Checked ||
-                    this.m_RegConfig.GetHoldLang())
-            {
-                return;
-            }
             if (this.m_FRichTextBox.Text.Length == 0)
             {
                 this.m_TRichTextBox.Text = "";
             }
-            else
+            else if (this.m_TSMIAuto.Checked && 
+                    !this.m_RegConfig.GetHoldLang())
             {
                 this.m_ATimer.Stop ();
                 this.m_ATimer.Start();
